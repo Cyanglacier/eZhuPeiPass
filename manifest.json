@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "eZhuPeiPass",
+  "version": "1.0",
+  "description": "成中医住培系统AI答题助手",
+  "minimum_chrome_version": "88",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["content.js"],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "{d56f3c24-3a8c-4e3e-bb4d-5b8d5c3b558d}",
+      "strict_min_version": "109.0"
+    },
+    "edge": {
+      "browser_action_next_to_addressbar": true
+    }
+  }
+}
