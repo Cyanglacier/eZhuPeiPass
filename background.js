@@ -136,7 +136,7 @@ async function queryAI(questions, apiKey) {
     console.log('[Background] queryAI: 构建的提示词:', prompt.substring(0, 100) + '...');
     
     const data = {
-      'model': 'qwen-turbo',
+      'model': 'qwen-plus',
       'input': {
         'messages': [
           {
